@@ -12,5 +12,11 @@ Locales['en'] = {
   ['robbery_cancelled_at'] = '~r~Robbery canceled at: ~b~%s~s~',
   ['min_police'] = 'It takes minimum ~b~%s Police~s~ in town to rob.',
   ['robbery_already'] = '~r~A robbery is already in progress.',
-  ['no_threat'] = 'You do not pose a threat to the store keeper'
+  ['no_threat'] = 'You do not pose a threat to the store keeper',
+  
+  ['welcome_apu'] = 'Welcome to Apu!',
+  ['rob_store'] = '~r~Rob the convenience store',
+  ['no_threat'] = '~r~You don\'t scare me!',
+  ['shop_hint'] = 'Press ~b~E~w~ to access the store',
+  ['shop'] = 'Shop',
 }
