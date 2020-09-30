@@ -29,7 +29,7 @@ Citizen.CreateThread(function()
 	end
 
 	_menuPool = NativeUI.CreatePool()
-	mainMenu = NativeUI.CreateMenu("", "Bienvenue chez Apu!", 5, 300, "shopui_title_gasstation", "shopui_title_gasstation")
+	mainMenu = NativeUI.CreateMenu("", _U('welcome_apu'), 5, 300, "shopui_title_gasstation", "shopui_title_gasstation")
 	_menuPool:Add(mainMenu)
 
 	ESX.TriggerServerCallback('esx_shops:requestDBItems', function(ShopItems)
@@ -125,7 +125,7 @@ function AddBraquerMenu(menu)
 	    local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, storePos.x, storePos.y, storePos.z)
 
 	    if distance < 15.0 then
-            local braquer = NativeUI.CreateItem("~r~Braquer la superette", "")
+            local braquer = NativeUI.CreateItem(_U('rob_store'), "")
 	        mainMenu:AddItem(braquer) 
 	        braquer:RightLabel(" →")
 	        mainMenu.OnItemSelect = function(menu, item, index)
@@ -133,7 +133,7 @@ function AddBraquerMenu(menu)
 		            if IsPedArmed(PlayerPedId(), 4) then
 			            TriggerServerEvent('esx_holdup:robberyStarted', k)
 			        else
-			            ESX.ShowNotification("~r~Vous ne me faites pas peur!")
+			            ESX.ShowNotification(_U('no_threat'))
 					end
 				end
 			end
@@ -149,7 +149,7 @@ end
 
 AddEventHandler('esx_shops:hasEnteredMarker', function(zone)
 	CurrentAction     = 'shop_menu'
-	CurrentActionMsg  = 'Appuyez sur ~b~E~w~ pour accéder à la boutique'
+	CurrentActionMsg  = _U('shop_hint')
 	CurrentActionData = {zone = zone}
 end)
 
@@ -170,7 +170,7 @@ Citizen.CreateThread(function()
 			SetBlipColour (blip, 2)
 			SetBlipAsShortRange(blip, true)
 			BeginTextCommandSetBlipName("STRING")
-			AddTextComponentString('Magasin')
+			AddTextComponentString(_U('shop'))
 			EndTextCommandSetBlipName(blip)
 		end
 	end
@@ -247,7 +247,7 @@ Citizen.CreateThread(function()
 			if not _menuPool:IsAnyMenuOpen() then
 				mainMenu:Clear()
 				_menuPool = NativeUI.CreatePool()
-				mainMenu = NativeUI.CreateMenu("", "Bienvenue chez Apu!", 5, 300, "shopui_title_gasstation", "shopui_title_gasstation")
+				mainMenu = NativeUI.CreateMenu("", _U('welcome_apu'), 5, 300, "shopui_title_gasstation", "shopui_title_gasstation")
 				_menuPool:Add(mainMenu)
 			end
 		end
